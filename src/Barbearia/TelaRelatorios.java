@@ -66,6 +66,7 @@ public class TelaRelatorios extends PainelBase {
         painel.add(desc, BorderLayout.NORTH);
         painel.add(scroll, BorderLayout.CENTER);
         painel.add(btnCarregar, BorderLayout.SOUTH);
+        btnCarregar.doClick();
         return painel;
     }
 
@@ -113,6 +114,7 @@ public class TelaRelatorios extends PainelBase {
         painel.add(desc, BorderLayout.NORTH);
         painel.add(scroll, BorderLayout.CENTER);
         painel.add(btnCarregar, BorderLayout.SOUTH);
+        btnCarregar.doClick();
         return painel;
     }
 

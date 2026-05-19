@@ -62,6 +62,7 @@ public class TelaPrincipal extends JFrame {
         lateral.add(criarBotaoMenu("💈  Barbeiros",   () -> mostrarPainel(new TelaBarbeiros())));
         lateral.add(criarBotaoMenu("📅  Agendamentos",() -> mostrarPainel(new TelaAgendamentos())));
         lateral.add(criarBotaoMenu("📊  Relatórios",  () -> mostrarPainel(new TelaRelatorios())));
+        lateral.add(criarBotaoMenu("📈  Dashboard",   () -> mostrarPainel(new TelaDashboard())));
 
         lateral.add(Box.createVerticalGlue());
 
@@ -112,5 +113,7 @@ public class TelaPrincipal extends JFrame {
         painelConteudo.add(painel, BorderLayout.CENTER);
         painelConteudo.revalidate();
         painelConteudo.repaint();
+
+
     }
 }
