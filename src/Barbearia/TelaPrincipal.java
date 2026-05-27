@@ -38,17 +38,19 @@ public class TelaPrincipal extends JFrame {
 
     private JPanel criarLateral() {
         JPanel lateral = new JPanel();
-        lateral.setPreferredSize(new Dimension(210, 0));
+        lateral.setPreferredSize(new Dimension(230, 0));
         lateral.setBackground(COR_LATERAL);
         lateral.setLayout(new BoxLayout(lateral, BoxLayout.Y_AXIS));
         lateral.setBorder(new EmptyBorder(20, 0, 20, 0));
 
         // Logo
         JLabel logo = new JLabel("✂ 7 BARBERSHOP", SwingConstants.CENTER);
-        logo.setFont(new Font("Georgia", Font.BOLD, 16));
+        logo.setFont(new Font("Georgia", Font.BOLD, 18));
         logo.setForeground(COR_DOURADO);
         logo.setAlignmentX(Component.CENTER_ALIGNMENT);
-        logo.setBorder(new EmptyBorder(0, 0, 20, 0));
+        logo.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+        logo.setHorizontalAlignment(SwingConstants.CENTER);
+        logo.setBorder(new EmptyBorder(10, 0, 25, 0));
 
         JSeparator sep = new JSeparator();
         sep.setForeground(new Color(50, 40, 80));
@@ -81,32 +83,36 @@ public class TelaPrincipal extends JFrame {
     }
 
     private JButton criarBotaoMenu(String texto, Runnable acao) {
-        JButton btn = new JButton(texto);
-        btn.setFont(new Font("Verdana", Font.PLAIN, 13));
-        btn.setForeground(COR_TEXTO);
-        btn.setBackground(COR_LATERAL);
-        btn.setBorderPainted(false);
-        btn.setFocusPainted(false);
-        btn.setOpaque(true);
-        btn.setHorizontalAlignment(SwingConstants.LEFT);
-        btn.setBorder(new EmptyBorder(12, 25, 12, 10));
-        btn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
-        btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    JButton btn = new JButton(texto);
+    btn.setFont(new Font("Verdana", Font.PLAIN, 13));
+    btn.setForeground(COR_TEXTO);
+    btn.setBackground(COR_LATERAL);
+    btn.setBorderPainted(false);
+    btn.setFocusPainted(false);
+    btn.setOpaque(true);
+    btn.setHorizontalAlignment(SwingConstants.LEFT);
+    btn.setBorder(new EmptyBorder(14, 28, 14, 10));
 
-        btn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent e) {
-                btn.setBackground(COR_HOVER);
-                btn.setForeground(COR_DOURADO);
-            }
-            public void mouseExited(java.awt.event.MouseEvent e) {
-                btn.setBackground(COR_LATERAL);
-                btn.setForeground(COR_TEXTO);
-            }
-        });
+    // Faz o botão ocupar 100% da largura da lateral
+    btn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
+    btn.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        btn.addActionListener(e -> acao.run());
-        return btn;
-    }
+    btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+    btn.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent e) {
+            btn.setBackground(COR_HOVER);
+            btn.setForeground(COR_DOURADO);
+        }
+        public void mouseExited(java.awt.event.MouseEvent e) {
+            btn.setBackground(COR_LATERAL);
+            btn.setForeground(COR_TEXTO);
+        }
+    });
+
+    btn.addActionListener(e -> acao.run());
+    return btn;
+}
 
     public void mostrarPainel(JPanel painel) {
         painelConteudo.removeAll();

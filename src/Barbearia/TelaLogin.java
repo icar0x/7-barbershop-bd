@@ -143,7 +143,7 @@ public class TelaLogin extends JFrame {
         }
 
         try (Connection conn = Conexao.conectar()) {
-            String sql = "SELECT id FROM usuarios WHERE username = ? AND senha = ?";
+            String sql = "SELECT id FROM usuarios WHERE usuario = ? AND senha = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, usuario);
             ps.setString(2, senha);
